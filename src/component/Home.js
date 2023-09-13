@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../assets/scss/Home.scss";
 import Header from "./Header";
 import Search from "./Search";
@@ -9,9 +9,18 @@ import { v4 as uuidv4 } from "uuid";
 import DataUser from "./data.json";
 
 const Home = () => {
-  const [data, setData] = useState(DataUser);
+  const [data, setData] = useState([]);
   const [searchValue, setSearchValue] = useState("");
   const [editValue, setEditValue] = useState({});
+
+  useEffect(() => {
+    if (localStorage.getItem("userData") === null) {
+      localStorage.setItem("userData", JSON.stringify(DataUser)); //JSON.stringify(data): chuyển object thành string
+    } else {
+      const userData = JSON.parse(localStorage.getItem("userData"));
+      setData(userData);
+    }
+  }, []);
 
   const handleDataUserSerch = (search) => {
     setSearchValue(search);
@@ -37,6 +46,8 @@ const Home = () => {
     };
     const updateUser = [...data, newUser];
     setData(updateUser);
+    //đẩy vào localStorage
+    localStorage.setItem("userData", JSON.stringify(updateUser));
   };
 
   //edit user
@@ -58,12 +69,18 @@ const Home = () => {
       }
     });
     setData(updatedData);
+
+    //đẩy vào localStorage
+    localStorage.setItem("userData", JSON.stringify(updatedData));
   };
 
   //delete user
   const handeleDeleteUser = (deleteUser) => {
     const updatedData = data.filter((value) => value.id !== deleteUser);
     setData(updatedData);
+
+    //đẩy vào localStorage
+    localStorage.setItem("userData", JSON.stringify(updatedData));
   };
 
   return (
