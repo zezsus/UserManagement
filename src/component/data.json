@@ -1,62 +1,62 @@
 [
-    {
-        "id": 1,
-        "name": "Lê Hữu Phước",
-        "phone": "0829381273",
-        "parmission": 1
-    },
-    {
-        "id": 2,
-        "name": "Hoàng Trung Đức",
-        "phone": "0987732829",
-        "parmission": 2
-    },
-    {
-        "id": 3,
-        "name": "Nguyễn Thị Thúy Ngân",
-        "phone": "0829381273",
-        "parmission": 3
-    },
-    {
-        "id": 4,
-        "name": "Trần Thu Hà",
-        "phone": "0279289070",
-        "parmission": 3
-    },
-    {
-        "id": 5,
-        "name": "Lê Minh Hiếu",
-        "phone": "0909417332",
-        "parmission": 3
-    },
-    {
-        "id": 6,
-        "name": "Vũ Huy Hoàng",
-        "phone": "0279289070",
-        "parmission": 1
-    },
-    {
-        "id": 7,
-        "name": "Mai Trung Dũng",
-        "phone": "0562597856",
-        "parmission": 2
-    },
-    {
-        "id": 8,
-        "name": "Đỗ Hồng Hạnh",
-        "phone": "047960648",
-        "parmission": 3
-    },
-    {
-        "id": 9,
-        "name": "Nguyễn Hoàng Nam",
-        "phone": "0862318324",
-        "parmission": 2
-    },
-    {
-        "id": 10,
-        "name": "Trần Nam Thắng",
-        "phone": "0568431194",
-        "parmission": 3
-    }
+  {
+    "id": 1,
+    "name": "Lê Hữu Phước",
+    "phone": "0829381273",
+    "permission": 1
+  },
+  {
+    "id": 2,
+    "name": "Hoàng Trung Đức",
+    "phone": "0987732829",
+    "permission": 2
+  },
+  {
+    "id": 3,
+    "name": "Nguyễn Thị Thúy Ngân",
+    "phone": "0829381273",
+    "permission": 3
+  },
+  {
+    "id": 4,
+    "name": "Trần Thu Hà",
+    "phone": "0279289070",
+    "permission": 3
+  },
+  {
+    "id": 5,
+    "name": "Lê Minh Hiếu",
+    "phone": "0909417332",
+    "permission": 3
+  },
+  {
+    "id": 6,
+    "name": "Vũ Huy Hoàng",
+    "phone": "0279289070",
+    "permission": 1
+  },
+  {
+    "id": 7,
+    "name": "Mai Trung Dũng",
+    "phone": "0562597856",
+    "permission": 2
+  },
+  {
+    "id": 8,
+    "name": "Đỗ Hồng Hạnh",
+    "phone": "047960648",
+    "permission": 3
+  },
+  {
+    "id": 9,
+    "name": "Nguyễn Hoàng Nam",
+    "phone": "0862318324",
+    "permission": 2
+  },
+  {
+    "id": 10,
+    "name": "Trần Nam Thắng",
+    "phone": "0568431194",
+    "permission": 3
+  }
 ]

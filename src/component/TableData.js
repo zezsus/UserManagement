@@ -25,7 +25,7 @@ const TableData = (props) => {
                   <th scope="row">{user.id}</th>
                   <td className="text-start">{user.name}</td>
                   <td>{user.phone}</td>
-                  <td>{user.parmission}</td>
+                  <td>{user.permission}</td>
                   <td>
                     <div className="btn-group">
                       <button

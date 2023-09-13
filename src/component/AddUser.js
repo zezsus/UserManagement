@@ -2,15 +2,15 @@ import React, { useState } from "react";
 import { BiAddToQueue } from "react-icons/bi";
 import { FaRegWindowClose } from "react-icons/fa";
 
-const AddUser = () => {
+const AddUser = (props) => {
   const [isDisplay, setIsDisplay] = useState(false);
   const [people, setPeople] = useState({
     id: "",
     name: "",
     phone: "",
-    parmission: "",
+    permission: "",
   });
-  const { id, name, phone, parmission } = people;
+  const { id, name, phone, permission } = people;
 
   const handleAddChange = (e) => {
     setPeople({ ...people, [e.target.name]: e.target.value });
@@ -23,9 +23,18 @@ const AddUser = () => {
     setIsDisplay(false);
   };
 
+  const handleClear = () => {
+    setPeople({ ...people, name: "", phone: "", permission: "" });
+  };
+
   const handleAdd = (e) => {
     e.preventDefault();
-    console.log(people);
+    if (!name || !phone || !permission) {
+      alert("Vui lòng nhập đầy đủ thông tin");
+    } else {
+      props.addNewUser(name, phone, permission);
+      handleClear();
+    }
   };
 
   return (
@@ -61,10 +70,10 @@ const AddUser = () => {
             </div>
             <div className="mb-3">
               <select
-                name="parmission"
+                name="permission"
                 className="form-select"
                 aria-label="Default select example"
-                value={parmission}
+                value={permission}
                 onChange={handleAddChange}>
                 <option defaultValue="default">-- Chọn quyền --</option>
                 <option value={1}>Admin</option>
@@ -74,12 +83,13 @@ const AddUser = () => {
             </div>
             <div className="w-100 d-flex align-items-center justify-content-center">
               <button
-                type="submit"
+                type="reset"
                 onClick={handleAdd}
                 className="btn btn-info d-flex align-items-center me-auto ms-5">
                 <BiAddToQueue size={20} className="me-1" />
                 Thêm
               </button>
+
               <button
                 type="button"
                 className="btn btn-danger d-flex align-items-center ms-auto me-5"
