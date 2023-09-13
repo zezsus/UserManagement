@@ -2,7 +2,7 @@ import React from "react";
 import { BiEdit } from "react-icons/bi";
 import { RiDeleteBin2Line } from "react-icons/ri";
 
-const TableData = () => {
+const TableData = (props) => {
   return (
     <div>
       <div className="mx-4">
@@ -19,51 +19,32 @@ const TableData = () => {
             </tr>
           </thead>
           <tbody className="text-center">
-            <tr>
-              <th scope="row">1</th>
-              <td>Nguyễn Văn A</td>
-              <td>0862847362</td>
-              <td>modrator</td>
-              <td>
-                <div className="btn-group">
-                  <button
-                    type="button"
-                    className="btn btn-warning d-flex align-items-center">
-                    <BiEdit size={20} className="me-1" />
-                    Sửa
-                  </button>
-                  <button
-                    type="button"
-                    className="btn btn-danger d-flex align-items-center">
-                    <RiDeleteBin2Line size={20} className="me-1" />
-                    Xóa
-                  </button>
-                </div>
-              </td>
-            </tr>
-
-            <tr>
-              <th scope="row">2</th>
-              <td>Nguyễn Văn B</td>
-              <td>0862847362</td>
-              <td>modrator</td>
-              <td>
-                <div className="btn-group">
-                  <button
-                    type="button"
-                    className="btn btn-warning d-flex align-items-center">
-                    <BiEdit size={20} className="me-1" />
-                    Sửa
-                  </button>
-                  <button
-                    type="button"
-                    className="btn btn-danger d-flex align-items-center">
-                    <RiDeleteBin2Line size={20} className="me-1" />
-                    Xóa
-                  </button>
-                </div>
-              </td>
-            </tr>
+            {props.dataUser.map((user, index) => {
+              return (
+                <tr key={index}>
+                  <th scope="row">{user.id}</th>
+                  <td className="text-start">{user.name}</td>
+                  <td>{user.phone}</td>
+                  <td>{user.parmission}</td>
+                  <td>
+                    <div className="btn-group">
+                      <button
+                        type="button"
+                        className="btn btn-warning d-flex align-items-center">
+                        <BiEdit size={20} className="me-1" />
+                        Sửa
+                      </button>
+                      <button
+                        type="button"
+                        className="btn btn-danger d-flex align-items-center">
+                        <RiDeleteBin2Line size={20} className="me-1" />
+                        Xóa
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              );
+            })}
           </tbody>
         </table>
       </div>
