@@ -55,8 +55,9 @@ const EditUser = (props) => {
           <div className="mb-3">
             <label className="form-label">Quyền</label>
             <select
-              defaultValue={permission}
+              value={permission}
               name="permission"
+              onChange={handleChange}
               className="form-select"
               aria-label="Default select example">
               <option defaultValue="default">-- Chọn quyền --</option>

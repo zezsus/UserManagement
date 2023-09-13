@@ -78,7 +78,7 @@ const TableData = (props) => {
           </table>
         </div>
       ) : (
-        <div>
+        <div className="mb-5">
           <EditUser
             close={handleClose}
             save={handleSave}
