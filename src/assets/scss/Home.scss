@@ -11,6 +11,11 @@
   .add-form {
     width: 400px;
   }
+
+  input {
+    outline: none;
+    box-shadow: none;
+  }
 }
 @media (max-width: 600px) {
   .content {

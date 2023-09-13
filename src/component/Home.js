@@ -11,6 +11,7 @@ import DataUser from "./data.json";
 const Home = () => {
   const [data, setData] = useState(DataUser);
   const [searchValue, setSearchValue] = useState("");
+  const [editValue, setEditValue] = useState({});
 
   const handleDataUserSerch = (search) => {
     setSearchValue(search);
@@ -20,10 +21,13 @@ const Home = () => {
   const filteredData = [];
   data.map((item) => {
     if (item.name.indexOf(searchValue) !== -1) {
-      filteredData.push(item);
+      return filteredData.push(item);
+    } else {
+      return filteredData;
     }
   });
 
+  //add user
   const handleAddNewUser = (name, phone, permission) => {
     const newUser = {
       id: uuidv4(),
@@ -35,17 +39,45 @@ const Home = () => {
     setData(updateUser);
   };
 
+  //edit user
+  const handeleEditUser = (edit) => {
+    setEditValue(edit);
+  };
+
+  const getUserEditInfo = (info) => {
+    const updatedData = data.map((value) => {
+      if (value.id === info.id) {
+        return {
+          ...value,
+          name: info.name,
+          phone: info.phone,
+          permission: info.permission,
+        };
+      } else {
+        return value;
+      }
+    });
+    setData(updatedData);
+  };
+
+  //delete user
+  const handeleDeleteUser = () => {
+    console.log("delete");
+  };
+
   return (
     <div>
       <Header />
       <div className="content">
-        <Search getDataUserSerch={(search) => handleDataUserSerch(search)} />
-        <AddUser
-          addNewUser={(name, phone, permission) =>
-            handleAddNewUser(name, phone, permission)
-          }
+        <Search getDataUserSerch={handleDataUserSerch} />
+        <AddUser addNewUser={handleAddNewUser} />
+        <TableData
+          dataUser={filteredData}
+          editUser={handeleEditUser}
+          editValue={editValue}
+          userEditInfo={getUserEditInfo}
+          deleteUser={handeleDeleteUser}
         />
-        <TableData dataUser={filteredData} />
       </div>
     </div>
   );

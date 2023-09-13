@@ -10,7 +10,7 @@ const AddUser = (props) => {
     phone: "",
     permission: "",
   });
-  const { id, name, phone, permission } = people;
+  const { name, phone, permission } = people;
 
   const handleAddChange = (e) => {
     setPeople({ ...people, [e.target.name]: e.target.value });
@@ -19,14 +19,17 @@ const AddUser = (props) => {
   const handleAddNew = () => {
     setIsDisplay(true);
   };
+
   const handleClose = () => {
     setIsDisplay(false);
   };
 
+  //clear input
   const handleClear = () => {
     setPeople({ ...people, name: "", phone: "", permission: "" });
   };
 
+  //add new user
   const handleAdd = (e) => {
     e.preventDefault();
     if (!name || !phone || !permission) {
@@ -34,6 +37,7 @@ const AddUser = (props) => {
     } else {
       props.addNewUser(name, phone, permission);
       handleClear();
+      handleClose();
     }
   };
 
@@ -76,9 +80,9 @@ const AddUser = (props) => {
                 value={permission}
                 onChange={handleAddChange}>
                 <option defaultValue="default">-- Chọn quyền --</option>
-                <option value={1}>Admin</option>
-                <option value={2}>Modrator</option>
-                <option value={3}>Normal</option>
+                <option value="Admin">Admin</option>
+                <option value="Modrator">Modrator</option>
+                <option value="Normal">Normal</option>
               </select>
             </div>
             <div className="w-100 d-flex align-items-center justify-content-center">
