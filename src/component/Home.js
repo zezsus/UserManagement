@@ -61,8 +61,9 @@ const Home = () => {
   };
 
   //delete user
-  const handeleDeleteUser = () => {
-    console.log("delete");
+  const handeleDeleteUser = (deleteUser) => {
+    const updatedData = data.filter((value) => value.id !== deleteUser);
+    setData(updatedData);
   };
 
   return (

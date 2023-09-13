@@ -17,8 +17,8 @@ const TableData = (props) => {
     props.userEditInfo(info);
   };
 
-  const handleDelete = () => {
-    props.deleteUser();
+  const handleDelete = (id) => {
+    props.deleteUser(id);
   };
 
   const handleClose = () => {
@@ -64,7 +64,7 @@ const TableData = (props) => {
                         </button>
                         <button
                           type="button"
-                          onClick={handleDelete}
+                          onClick={() => handleDelete(user.id)}
                           className="btn btn-danger d-flex align-items-center">
                           <RiDeleteBin2Line size={20} className="me-1" />
                           Xóa
